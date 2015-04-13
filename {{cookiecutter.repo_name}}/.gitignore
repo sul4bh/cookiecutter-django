@@ -7,11 +7,6 @@ __pycache__
 *.log
 pip-log.txt
 
-# Unit test / coverage reports
-.coverage
-.tox
-nosetests.xml
-
 # Translations
 *.mo
 *.pot
@@ -20,7 +15,6 @@ nosetests.xml
 .idea
 
 # Vim
-
 *~
 *.swp
 *.swo
@@ -28,5 +22,5 @@ nosetests.xml
 # npm
 node_modules/
 
-# Compass
-.sass-cache
+# configuration template files
+*.dist

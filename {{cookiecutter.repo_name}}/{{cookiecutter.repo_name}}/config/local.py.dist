@@ -27,6 +27,11 @@ class Local(Common):
     EMAIL_BACKEND = values.Value('django.core.mail.backends.console.EmailBackend')
     # End mail settings
 
+    # DATABASE CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+    DATABASES = values.DatabaseURLValue('mysql://<user>:<password>@127.0.0.1/<database_name>')
+    # END DATABASE CONFIGURATION
+
     # django-debug-toolbar
     MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INSTALLED_APPS += ('debug_toolbar', 'django_extensions',)

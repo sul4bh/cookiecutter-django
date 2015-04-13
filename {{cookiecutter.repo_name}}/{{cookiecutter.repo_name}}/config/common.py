@@ -37,16 +37,11 @@ class Common(Configuration):
         'django.contrib.admin',
     )
     THIRD_PARTY_APPS = (
-        'crispy_forms',  # Form layouts
-        'avatar',  # for user avatars
-        'allauth',  # registration
-        'allauth.account',  # registration
-        'allauth.socialaccount',  # registration
+        'bootstrap3',  # Form rendering
     )
 
     # Apps specific for this project go here.
     LOCAL_APPS = (
-        'users',  # custom users app
         # Your stuff: custom apps go here
     )
 
@@ -108,11 +103,6 @@ class Common(Configuration):
     MANAGERS = ADMINS
     # END MANAGER CONFIGURATION
 
-    # DATABASE CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('postgres://localhost/{{cookiecutter.repo_name}}')
-    # END DATABASE CONFIGURATION
-
     # CACHING
     # Do this here because thanks to django-pylibmc-sasl and pylibmc
     # memcacheify (used on heroku) is painful to install on windows.
@@ -152,8 +142,6 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
     TEMPLATE_CONTEXT_PROCESSORS = (
         'django.contrib.auth.context_processors.auth',
-        'allauth.account.context_processors.account',
-        'allauth.socialaccount.context_processors.socialaccount',
         'django.core.context_processors.debug',
         'django.core.context_processors.i18n',
         'django.core.context_processors.media',
@@ -215,21 +203,7 @@ class Common(Configuration):
     # AUTHENTICATION CONFIGURATION
     AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',
-        'allauth.account.auth_backends.AuthenticationBackend',
     )
-
-    # Some really nice defaults
-    ACCOUNT_AUTHENTICATION_METHOD = 'username'
-    ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-    # END AUTHENTICATION CONFIGURATION
-
-    # Custom user app defaults
-    # Select the correct user model
-    AUTH_USER_MODEL = 'users.User'
-    LOGIN_REDIRECT_URL = 'users:redirect'
-    LOGIN_URL = 'account_login'
-    # END Custom user app defaults
 
     # SLUGLIFIER
     AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
