@@ -19,6 +19,7 @@ Features
 * Settings management via django-configurations_
 
 .. _Bootstrap: https://github.com/dyve/django-bootstrap3
+.. _django-configurations: https://github.com/jezdez/django-configurations
 
 Constraints
 -----------
