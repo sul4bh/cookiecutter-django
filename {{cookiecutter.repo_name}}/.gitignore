@@ -24,3 +24,6 @@ node_modules/
 
 # configuration template files
 *.dist
+
+config/local.py
+config/production.py
